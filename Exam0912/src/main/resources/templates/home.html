@@ -1,0 +1,24 @@
+<!-- /templates/home.html -->
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>샤워 아이디어 보관소</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <style> body { font-family: 'Pretendard', sans-serif; background-color: #F0F8FF; } </style>
+</head>
+<body>
+<div th:replace="~{layout/header :: header}"></div>
+<main class="container mx-auto p-8 text-center flex items-center justify-center" style="height: calc(100vh - 80px);">
+    <div>
+        <h1 class="text-7xl font-extrabold text-slate-800">사라지기 전에, <span class="text-blue-500">기록하세요.</span></h1>
+        <p class="text-slate-500 mt-4 text-xl max-w-2xl mx-auto">샤워 중에만 떠오르는 당신의 천재적인 아이디어들, 이제 영원히 보관하세요.</p>
+        <div class="mt-10">
+            <a sec:authorize="isAnonymous()" th:href="@{/users/signup}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-transform transform hover:scale-105">보관소 시작하기</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/ideas}" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-10 rounded-full text-lg transition-transform transform hover:scale-105">내 아이디어 보기</a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
